@@ -1,0 +1,22 @@
+{
+  "name": "test_re2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "watch": "webpack --watch"
+  },
+  "author": "",
+  "license": "UNLICENSE",
+  "private": true,
+  "dependencies": {
+    "css-loader": "^3.4.2",
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.12"
+  },
+  "devDependencies": {
+    "style-loader": "^1.1.3"
+  }
+}
