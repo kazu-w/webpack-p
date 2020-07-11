@@ -1,4 +1,4 @@
-import "./modules/style.css";
+import "../css/style.css";
 
 const dogs = {
   shiba: {
