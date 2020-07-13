@@ -1,7 +1,7 @@
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+//const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 module.exports = {
   entry: "./src/js/index.js",
   output: {
@@ -35,6 +35,20 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.pug/,
+        use: [
+          {
+            loader: "html-loader",
+          },
+          {
+            loader: "pug-html-loader",
+            options: {
+              pretty: true,
+            },
+          },
+        ],
+      },
     ],
   },
   plugins: [
@@ -42,8 +56,13 @@ module.exports = {
       filename: "./css/style.css",
     }),
     new HtmlWebpackPlugin({
-      template: "./src/templates/index.html",
+      template: "./src/templates/index.pug",
+      filename: "index.html",
     }),
-    new CleanWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      template: "./src/templates/access.pug",
+      filename: "access.html",
+    }),
+    //new CleanWebpackPlugin(),
   ],
 };

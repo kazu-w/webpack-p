@@ -1,0 +1,15 @@
+doctype html
+
+block locals
+  - var title = 'website';
+  - var keywords = 'website, variable';
+
+html(lang="en")
+  head
+    meta(charaset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    meta(name="keywords" content=keywords)
+    title #{title}
+  body
+    include _menu.pug
+    block content
