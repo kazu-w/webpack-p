@@ -1,4 +1,4 @@
-import "../css/style.css";
+import "../css/style.scss";
 
 const dogs = {
   shiba: {
@@ -34,17 +34,19 @@ const result = document.getElementById("result");
 let nation;
 let getData;
 
-searchBtn.addEventListener("click", (e) => {
-  e.preventDefault();
-  nation = selectNation.value;
-  getData = filterdDogs(nation);
-  result.innerHTML = "";
-  getData.forEach(([, data]) => {
-    const p = document.createElement("p");
-    p.innerHTML = `${data.name} ${data.nation}`;
-    result.appendChild(p);
+if (searchBtn) {
+  searchBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    nation = selectNation.value;
+    getData = filterdDogs(nation);
+    result.innerHTML = "";
+    getData.forEach(([, data]) => {
+      const p = document.createElement("p");
+      p.innerHTML = `${data.name} ${data.nation}`;
+      result.appendChild(p);
+    });
   });
-});
+}
 
 import m1 from "./modules/m1";
 

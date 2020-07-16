@@ -2,10 +2,11 @@ extends _layout.pug
 
 block locals
   - var title = 'toppage';
-  - var keywords = 'portfolio'
+  - var keywords = 'portfolio, toppage'
 
 block content
   p npx webpack --mode development
+  p npx webpack-dev-server
   p(class="tac") 
     img(src="../img/icon.png" alt="")
     img(src="../img/thumbnail.jpg" alt="")
@@ -15,3 +16,14 @@ block content
     option(value="ro") ロシア
   button(id="search" type="button") press button
   div(id="result")
+
+  ul
+    -
+      var list = {
+        top : '/index.html',
+        access : '/access.html'
+      }
+
+    each val, key in list
+      li
+        a(href=val) #{key}
