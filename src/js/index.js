@@ -1,6 +1,18 @@
 import "../css/style.scss";
 import "./reactApp.jsx";
 
+import Vue from "vue";
+import VueApp from "./vueApp.vue";
+new Vue({
+  el: "#vue-root",
+  render: (h) => {
+    return h(VueApp);
+  },
+  mounted() {
+    console.log("!!!");
+  },
+});
+
 const dogs = {
   shiba: {
     name: "shiba",
@@ -56,7 +68,7 @@ function getData2() {
   const url =
     "http://api.openweathermap.org/data/2.5/forecast?q=tokyo&appid=9b4c3aba091293d4dcda5748bc6e2198";
 
-  axios.get(url).then(function (response) {
+  axios.get(url).then(function(response) {
     // handle success
     const data = response.data;
     console.log(data);
