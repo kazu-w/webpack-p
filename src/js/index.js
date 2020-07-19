@@ -1,4 +1,5 @@
 import "../css/style.scss";
+import "./reactApp.jsx";
 
 const dogs = {
   shiba: {
@@ -50,4 +51,32 @@ if (searchBtn) {
 
 import m1 from "./modules/m1";
 
-m1();
+import axios from "axios";
+function getData2() {
+  const url =
+    "http://api.openweathermap.org/data/2.5/forecast?q=tokyo&appid=9b4c3aba091293d4dcda5748bc6e2198";
+
+  axios.get(url).then(function (response) {
+    // handle success
+    const data = response.data;
+    console.log(data);
+
+    const days = data.list;
+
+    days.forEach((day) => {
+      console.log(day.dt_txt + " " + day.weather[0].description);
+    });
+
+    console.log(data.city);
+    console.log(data.list);
+  });
+}
+
+async function setData() {
+  const result2 = await getData2();
+}
+
+setData();
+
+const bbb = "bbb";
+console.log(bbb);

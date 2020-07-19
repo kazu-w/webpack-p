@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///./src/css/style.scss"],"names":[],"mappings":"AAAA,KACE,qBAAsB,CACvB,EAGC,SAAU","file":"./css/style.css","sourcesContent":["body {\r\n  background: lightgreen;\r\n}\r\n\r\np {\r\n  color: red;\r\n}\r\n"],"sourceRoot":""}

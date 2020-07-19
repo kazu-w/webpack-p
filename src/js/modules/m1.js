@@ -1,3 +1,3 @@
-export default function aaa() {
+export default function () {
   console.log("!aaa!!");
 }

@@ -1,8 +1,10 @@
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-//const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 module.exports = {
+  mode: "development",
+  devtool: "source-map",
   entry: "./src/js/index.js",
   output: {
     path: path.resolve(__dirname, "./dist"),
@@ -10,6 +12,29 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        test: /\.js/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: "babel-loader",
+            options: {
+              presets: [
+                [
+                  "@babel/preset-env",
+                  /*{ targets: ">0.25%, not dead" }*/
+                  {
+                    targets: {
+                      node: "current",
+                    },
+                  },
+                ],
+                "@babel/preset-react",
+              ],
+            },
+          },
+        ],
+      },
       {
         test: /\.(css|sass|scss)/,
         use: [
@@ -19,6 +44,9 @@ module.exports = {
           },
           {
             loader: "css-loader",
+            options: {
+              sourceMap: true,
+            },
           },
           {
             loader: "sass-loader",
@@ -26,7 +54,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.png|.jpg/,
+        test: /\.(png|jpg|jpeg)/,
         use: [
           {
             loader: "file-loader",
@@ -34,6 +62,15 @@ module.exports = {
               esModule: false,
               // 変更
               name: "img/[name].[ext]",
+            },
+          },
+          {
+            loader: "image-webpack-loader",
+            options: {
+              mozjpeg: {
+                progressive: true,
+                quality: 65,
+              },
             },
           },
         ],
@@ -70,6 +107,6 @@ module.exports = {
       template: "./src/templates/members/taro.pug",
       filename: "members/taro.html",
     }),
-    //new CleanWebpackPlugin(),
+    new CleanWebpackPlugin(),
   ],
 };
