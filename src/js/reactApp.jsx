@@ -6,7 +6,7 @@ import Alert from "./alert.tsx";
 const App = (props) => {
   return (
     <div>
-      hello react
+      hello react!!
       <Alert message="success" />
     </div>
   );

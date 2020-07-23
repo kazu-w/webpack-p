@@ -1,7 +1,56 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   background: lightgreen;
 }
 
+.footer {
+  padding: 10px;
+  color: #fff;
+  text-align: center;
+  background: #333;
+
+  p {
+    color: #fff;
+  }
+}
+
 p {
-  color: red;
+  color: blue;
+}
+
+.menu {
+  display: flex;
+  padding: 8px;
+  background: #fff;
+  border-bottom: 1px solid #e2e2e2;
+
+  &__item {
+    &:not(:last-of-type) {
+      margin-right: 1em;
+    }
+
+    >a {
+      text-decoration: underline;
+    }
+  }
+}
+
+
+.image {
+  position: relative;
+  width: 95%;
+  margin: auto;
+  padding-top: 66%;
+  background: url("../img/thumbnail.jpg") center center / auto auto no-repeat;
+
+  &__icon {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 50px;
+  }
 }

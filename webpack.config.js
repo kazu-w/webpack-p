@@ -8,6 +8,7 @@ module.exports = {
   mode: "development",
   devtool: "source-map",
   entry: "./src/js/index.js",
+  target: "node",
   output: {
     path: path.resolve(__dirname, "./dist"),
     filename: "js/main.js",
@@ -74,6 +75,7 @@ module.exports = {
               esModule: false,
               // 変更
               name: "img/[name].[ext]",
+              publicPath: "/",
             },
           },
           {

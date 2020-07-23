@@ -5,10 +5,16 @@ import Vue from "vue";
 import VueApp from "./vueApp.vue";
 
 import addTs from "./add.ts";
-
 console.log(addTs(10, 5));
+import { Slider } from "./slider.ts";
 
-new Vue({
+const slider = new Slider(".swiper-container", {
+  loop: true,
+});
+
+slider._init();
+
+/*new Vue({
   el: "#vue-root",
   render: (h) => {
     return h(VueApp);
@@ -16,7 +22,7 @@ new Vue({
   mounted() {
     console.log("!!!");
   },
-});
+});*/
 
 const dogs = {
   shiba: {

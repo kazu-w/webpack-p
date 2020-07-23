@@ -9,12 +9,15 @@ block content
 
   div#vue-root
 
-  p npx webpack --mode development ooo
-  p npx webpack-dev-server
-  p Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde nulla maxime aut animi quidem, quaerat illum cupiditate quae sunt rem, rerum mollitia dolores, deleniti consequatur? Beatae harum provident porro autem?
-  p(class="tac") 
-    img(src="../img/icon.png" alt="")
-    img(src="../img/thumbnail.jpg" alt="")
+  .swiper-container
+    .swiper-wrapper
+      .swiper-slide slide1
+      .swiper-slide slide2
+      .swiper-slide slide3
+
+
+  .image
+    img.image__icon(src="../img/icon.png" alt="")
 
   select(name="selectNation" id="selectNation")
     option(value="ja") 日本
@@ -32,3 +35,13 @@ block content
     each val, key in list
       li
         a(href=val) #{key}
+
+  ul
+    - for(var i = 0; i < 12; i++){
+      if(i == 11)
+        li end#{i}
+      else
+        li item #{i}
+    -}
+
+
