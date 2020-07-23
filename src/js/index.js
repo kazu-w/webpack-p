@@ -3,6 +3,11 @@ import "./reactApp.jsx";
 
 import Vue from "vue";
 import VueApp from "./vueApp.vue";
+
+import addTs from "./add.ts";
+
+console.log(addTs(10, 5));
+
 new Vue({
   el: "#vue-root",
   render: (h) => {
